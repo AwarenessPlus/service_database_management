@@ -1,0 +1,3 @@
+[submodule "service_database_application/Domain_model_app"]
+	path = service_database_application/Domain_model_app
+	url = https://github.com/marlonlinares16/model_domain.git
