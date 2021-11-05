@@ -1,0 +1,516 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "DatabaseServices",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Medics/ping": {
+      "get": {
+        "tags": [
+          "Medics"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Medics/{UserName}": {
+      "get": {
+        "tags": [
+          "Medics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "UserName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Medics"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "UserName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/MedicDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Patients/ping": {
+      "get": {
+        "tags": [
+          "Patients"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Patients/{documentID}": {
+      "get": {
+        "tags": [
+          "Patients"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "documentID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PatientDTO"
+            }
+          }
+        }
+      }
+    },
+    "/api/Patients/new-patient": {
+      "post": {
+        "tags": [
+          "Patients"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PatientDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Patient"
+            }
+          }
+        }
+      }
+    },
+    "/api/Procedures/ping": {
+      "get": {
+        "tags": [
+          "Procedures"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Procedures/{MedicID}": {
+      "get": {
+        "tags": [
+          "Procedures"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "MedicID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Procedure"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Procedures/new-procedure": {
+      "post": {
+        "tags": [
+          "Procedures"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ProcedureDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Procedure"
+            }
+          }
+        }
+      }
+    },
+    "/api/Procedures/{id}": {
+      "delete": {
+        "tags": [
+          "Procedures"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Procedures/upload-video/{procedureID}": {
+      "post": {
+        "tags": [
+          "Procedures"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "procedureID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "formData",
+            "name": "file",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Procedures/get-video/{procedureID}": {
+      "get": {
+        "tags": [
+          "Procedures"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "procedureID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "BloodGroup": {
+      "format": "int32",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "type": "integer"
+    },
+    "MedicDTO": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "age": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "semester": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "rotation": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "medicID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "birthDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "Patient": {
+      "type": "object",
+      "properties": {
+        "patientID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "patientInfo": {
+          "$ref": "#/definitions/User"
+        },
+        "bloodgroup": {
+          "$ref": "#/definitions/BloodGroup"
+        },
+        "rh": {
+          "$ref": "#/definitions/Rh"
+        },
+        "sex": {
+          "$ref": "#/definitions/Sex"
+        },
+        "userID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "documentID": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "PatientDTO": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "bloodGroup": {
+          "type": "string"
+        },
+        "rh": {
+          "type": "string"
+        },
+        "sex": {
+          "type": "string"
+        },
+        "documentID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "patientID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "birthDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "patientAge": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Procedure": {
+      "type": "object",
+      "properties": {
+        "procedureID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "procedureName": {
+          "type": "string"
+        },
+        "patientStatus": {
+          "type": "string"
+        },
+        "asa": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "medicID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pacient": {
+          "$ref": "#/definitions/Patient"
+        },
+        "pacientID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "procedureDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "ProcedureDTO": {
+      "type": "object",
+      "properties": {
+        "procedureName": {
+          "type": "string"
+        },
+        "patientStatus": {
+          "type": "string"
+        },
+        "asa": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "patientID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "medicID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "patientAge": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "patientInfo": {
+          "$ref": "#/definitions/PatientDTO"
+        },
+        "procedureDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "Rh": {
+      "format": "int32",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "type": "integer"
+    },
+    "Sex": {
+      "format": "int32",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "type": "integer"
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "secondName": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "birthDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
