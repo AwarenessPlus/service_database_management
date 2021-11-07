@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YnKCp2yZ+WImtKcNk8ZYocZHPAaBut3HopGtiUA0w2LcUC2KJvgWnu39OV6XDplJoTXuPXf4l2Cj2x9up2gF2w==",
+  "dgSpecHash": "+nK3N/z+cMpDnZVqh1HLvxyW/Y0RTN/Bc8fTiAgwjW1nZ98fPg9bbMRlco2awNS+jpNXQ8Z5CwydkTN9QayIqQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\maesl\\Documents\\ProyectoPersonal\\DatabaseServices\\DatabaseServices.csproj",
+  "projectFilePath": "C:\\Users\\maesl\\Documents\\GitHub\\service_database_management\\service_database_application\\DatabaseServices\\DatabaseServices.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\maesl\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\maesl\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.10\\microsoft.aspnetcore.authentication.jwtbearer.5.0.10.nupkg.sha512",
