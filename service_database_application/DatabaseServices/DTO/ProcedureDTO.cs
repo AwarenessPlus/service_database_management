@@ -4,6 +4,7 @@ namespace DatabaseServices.DTO
 {
     public class ProcedureDTO
     {
+        private int procedureID;
         private int _medicID;
         private string _procedureName;
         private string _patientStatus;
@@ -21,5 +22,6 @@ namespace DatabaseServices.DTO
         public int PatientAge { get => _patientAge; set => _patientAge = value; }
         public PatientDTO PatientInfo { get => _patientInfo; set => _patientInfo = value; }
         public DateTime ProcedureDate { get => _procedureDate; set => _procedureDate = value; }
+        public int ProcedureID { get => procedureID; set => procedureID = value; }
     }
 }

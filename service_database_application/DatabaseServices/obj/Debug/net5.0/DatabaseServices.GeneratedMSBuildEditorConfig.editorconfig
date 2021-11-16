@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = DatabaseServices
-build_property.ProjectDir = C:\Users\maesl\Documents\GitHub\service_database_management\service_database_application\DatabaseServices\
+build_property.ProjectDir = C:\Users\maesl\Documents\ProyectoPersonal\DatabaseServices\

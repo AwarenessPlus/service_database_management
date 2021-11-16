@@ -9077,11 +9077,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\maesl\\Documents\\GitHub\\service_database_management\\service_database_application\\DatabaseServices\\DatabaseServices.csproj",
+      "projectUniqueName": "C:\\Users\\maesl\\Documents\\ProyectoPersonal\\DatabaseServices\\DatabaseServices.csproj",
       "projectName": "DatabaseServices",
-      "projectPath": "C:\\Users\\maesl\\Documents\\GitHub\\service_database_management\\service_database_application\\DatabaseServices\\DatabaseServices.csproj",
+      "projectPath": "C:\\Users\\maesl\\Documents\\ProyectoPersonal\\DatabaseServices\\DatabaseServices.csproj",
       "packagesPath": "C:\\Users\\maesl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\maesl\\Documents\\GitHub\\service_database_management\\service_database_application\\DatabaseServices\\obj\\",
+      "outputPath": "C:\\Users\\maesl\\Documents\\ProyectoPersonal\\DatabaseServices\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

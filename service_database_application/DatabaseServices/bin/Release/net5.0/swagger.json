@@ -466,6 +466,10 @@
         "procedureDate": {
           "format": "date-time",
           "type": "string"
+        },
+        "procedureID": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },

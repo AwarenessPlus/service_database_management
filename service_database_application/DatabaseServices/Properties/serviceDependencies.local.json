@@ -1,8 +1,22 @@
 {
   "dependencies": {
     "mssql1": {
-      "type": "mssql.local",
-      "connectionId": "ConnectionStrings:DatabaseServicesContext"
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:DatabaseServicesContext",
+      "suggestion": "true",
+      "ignored": "true"
+    },
+    "identityapp1": {
+      "type": "identityapp",
+      "connectionId": "",
+      "suggestion": "true",
+      "ignored": "true"
+    },
+    "secrets1": {
+      "type": "secrets",
+      "connectionId": "",
+      "suggestion": "true",
+      "ignored": "true"
     }
   }
 }
