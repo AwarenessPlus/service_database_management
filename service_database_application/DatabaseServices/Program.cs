@@ -1,11 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace DatabaseServices
 {
@@ -18,9 +13,20 @@ namespace DatabaseServices
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
+                .ConfigureWebHostDefaults(webHostBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webHostBuilder
+                    .UseKestrel(
+                        options =>
+                        {
+                            options.Limits.MaxRequestBodySize = int.MaxValue;
+                            options.Limits.KeepAliveTimeout = System.TimeSpan.FromMinutes(10);
+                        }
+                    )
+                    .UseContentRoot(Directory.GetCurrentDirectory())
+                    .UseIIS()
+                    .UseIISIntegration()
+                    .UseStartup<Startup>();
                 });
     }
 }

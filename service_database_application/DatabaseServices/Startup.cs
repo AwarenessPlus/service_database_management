@@ -16,6 +16,8 @@ using DatabaseServices.Data;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Http.Features;
+using DatabaseServices.Services;
 
 namespace DatabaseServices
 {
@@ -31,8 +33,25 @@ namespace DatabaseServices
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddScoped<IMedicsServices, MedicsServices>();
+            services.AddScoped<IPatientsServices, PatientsServices>();
+            services.AddScoped<IProceduresServices, ProceduresServices>();
+            IMedicsServices medicsInstance = new MedicsServices();
+            IPatientsServices patientsInstance = new PatientsServices();
+            IProceduresServices proceduresInstance = new ProceduresServices();
             var key = Encoding.ASCII.GetBytes(Configuration.GetValue<string>("AppSecretKey"));
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("https://databaseservicesawareness.azurewebsites.net/")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowAnyOrigin();
+                    });
+            });
 
             services.AddAuthentication(x =>
             {
@@ -49,6 +68,15 @@ namespace DatabaseServices
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
+            });
+
+            services.Configure<FormOptions>(options =>
+            {
+                options.ValueLengthLimit = int.MaxValue;
+
+                options.MultipartBodyLengthLimit = int.MaxValue;
+
+                options.MultipartHeadersLengthLimit = int.MaxValue;
             });
 
             services.AddControllers();
@@ -70,6 +98,8 @@ namespace DatabaseServices
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DatabaseServices v1"));
             }
+
+            app.UseCors();
 
             app.UseHttpsRedirection();
 
